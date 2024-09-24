@@ -1,0 +1,15 @@
+{
+    "name": "ucb/inventario",
+    "autoload": {
+        "psr-4": {
+            "Ucb\\Inventario\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ronal Guerrero",
+            "email": "ronal.guerrero@gmail.com"
+        }
+    ],
+    "require": {}
+}

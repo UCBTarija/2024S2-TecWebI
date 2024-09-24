@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Modelo;
+
+
 class Alumno extends Persona
 {
     private string $curso;

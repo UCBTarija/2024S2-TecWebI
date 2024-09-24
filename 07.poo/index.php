@@ -1,6 +1,9 @@
 <?php
-require 'Persona.php';
-require 'Alumno.php';
+
+use App\Modelo\Alumno;
+
+require 'Modelo/Persona.php';
+require 'Modelo/Alumno.php';
 
 // $a = new Persona(
 //     edad: 5,
@@ -22,4 +25,4 @@ echo  $alumno->getNombre()
     . ' Curso '
     . $alumno->getCurso();
 
-echo Persona::numManos();
+echo \App\Modelo\Persona::numManos();

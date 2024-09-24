@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Modelo;
+
 abstract class Persona
 {
     protected string $nombre;
