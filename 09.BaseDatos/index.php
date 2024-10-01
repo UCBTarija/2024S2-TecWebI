@@ -9,7 +9,7 @@ $dsn = "pgsql:host=localhost;port=5432;dbname=almacen";
 $pdo = new PDO($dsn, 'ucb', 'Tarija2024'); 
 
 // prepara una consulta
-$query = $pdo->prepare("select * from articulo where id = :id");
+$query = $pdo->prepare("select id as id_articulo, nombre from articulo where id = :id");
 
 // ejecuta la consulta enviando parámetros
 $query->execute([':id' => 1]);
@@ -19,7 +19,7 @@ $rows= $query->fetchAll(PDO::FETCH_ASSOC);
 
 // recorre el arreglo imprimiendo las columnas
 foreach($rows as $row) {
-	print_r("id:". $row['id']."\n"); 
+	print_r("id:". $row['id_articulo']."\n"); 
 	print_r("nombre:". $row['nombre']."\n");
 }
 
