@@ -1,7 +1,5 @@
 <?php
 
-use Ucb\Almacen\Model\Articulo;
-
 require 'vendor/autoload.php';
 
 // cadena de conexión

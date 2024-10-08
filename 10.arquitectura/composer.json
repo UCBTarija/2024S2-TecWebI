@@ -1,0 +1,15 @@
+{
+    "name": "ucb/almacen",
+    "autoload": {
+        "psr-4": {
+            "Ucb\\Almacen\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ronal Guerrero",
+            "email": "ronal.guerrero@gmail.com"
+        }
+    ],
+    "require": {}
+}
