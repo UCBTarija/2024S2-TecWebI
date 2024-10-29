@@ -1,0 +1,10 @@
+parameters:
+    level=3
+    paths:
+        - app
+        - public
+        - routes
+    bootstrapFiles:
+    excludePaths:
+        analyse:
+            - vendor/
