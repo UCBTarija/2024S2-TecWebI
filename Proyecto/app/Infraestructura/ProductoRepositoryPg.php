@@ -6,7 +6,7 @@ use App\Core\Dominio\Producto;
 use Illuminate\Support\Facades\DB;
 use App\Core\Dominio\ProductoRepository;
 
-class ProductoRepositoryImpl implements ProductoRepository
+class ProductoRepositoryPg implements ProductoRepository
 {
     /**
      * @inheritdoc

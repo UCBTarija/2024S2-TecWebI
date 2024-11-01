@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Core\Application\ProductoService;
+use App\Infraestructura\ProductoRepositoryFb;
 
 class ProductoController extends Controller
 {
@@ -15,8 +16,14 @@ class ProductoController extends Controller
         // se puede obtener mediante el inyector de dependencias
         // se le pasa por parámetro una clase que implementa la interfaz ProductoRepository
         // Aquí es donde se hace la inyección de dependencias
+
+        
+        // $this->productoService = new ProductoService(
+        //     new \App\Infraestructura\ProductoRepositoryPg()
+        // );
+
         $this->productoService = new ProductoService(
-            new \App\Infraestructura\ProductoRepositoryImpl()
+            new ProductoRepositoryFb()
         );
     }
 
@@ -51,6 +58,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        // validación de los datos enviados por el formulario
         $validatedData = $request->validate([
             'codigo' => ['required', 'max:20'],
             'nombre' => ['required'],
@@ -102,6 +110,7 @@ class ProductoController extends Controller
         $this->productoService->modificarProducto($id, $validatedData);
 
         return redirect('producto/index')->with('success', 'Producto actualizado');
+        
     }
 
     /**
