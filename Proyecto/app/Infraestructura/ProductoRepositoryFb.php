@@ -12,7 +12,11 @@ class ProductoRepositoryFb implements ProductoRepository
      */
     public function search(string $filtro): array
     {
-        $data = FirebaseConnection::get("/productos", ['orderBy' => '"codigo"', 'startAt' => "\"$filtro\"", 'endAt' => '"\uf8ff"']);
+        $data = FirebaseConnection::get("/productos", [
+            'orderBy' => '"codigo"',
+            'startAt' => "\"$filtro\"",
+            'endAt' => '"\uf8ff"'
+        ]);
         if ($data == false) {
             return [];
         }

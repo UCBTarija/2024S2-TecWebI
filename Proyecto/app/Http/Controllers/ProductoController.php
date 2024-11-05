@@ -122,4 +122,9 @@ class ProductoController extends Controller
 
         return redirect('producto/index')->with('success', 'Producto eliminado');
     }
+
+    public function getSemana(){
+        $semana = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+        return response()->json($semana);
+    }
 }
