@@ -4,7 +4,7 @@
 
 <?php
 /**
- * @var \App\Models\Dominio\Producto[] $productos
+ * @var \App\Core\Dominio\Producto[] $productos
  * @var string $filtro
  */
 ?>

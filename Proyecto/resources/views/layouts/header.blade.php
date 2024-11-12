@@ -14,10 +14,24 @@
             Productos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= url('producto/index') ?>">Lista  de Productos</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="<?= url('producto/index') ?>">Lista de Productos</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
             <li><a class="dropdown-item" href="<?= url('producto/create') ?>">Nuevo Producto</a></li>
           </ul>
+
+
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <form method="POST" action="<?= url('logout') ?>">
+            @csrf
+            <button type="submit" class="btn btn-link">Cerrar Sesión</button>
+        </li>
+        <li>
+          <a href="profile">Perfil</a>
         </li>
       </ul>
     </div>

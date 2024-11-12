@@ -1,17 +1,21 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductoController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('producto/index', [ProductoController::class, 'index']);
-Route::get('producto/create', [ProductoController::class, 'create']);
-Route::post('producto/create', [ProductoController::class, 'store']);
-Route::get('producto/edit/{id}', [ProductoController::class, 'edit']);
-Route::post('producto/update/{id}', [ProductoController::class, 'update']);
-Route::post('producto/destroy/{id}', [ProductoController::class, 'destroy']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('producto/get-semana', [ProductoController::class, 'getSemana']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+require __DIR__.'/producto.php';

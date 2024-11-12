@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var \Illuminate\Support\MessageBag $errors
+ */
+?>
+
 <!doctype html>
 <html lang="es">
 
