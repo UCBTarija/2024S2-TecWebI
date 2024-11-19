@@ -45,4 +45,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function hasPermission(string $permission): bool
+    {
+        return array_key_exists($permission, self::PERMISSIONS);
+    }
+
+    const PERMISSIONS = [
+        'producto-create'
+    ];
 }

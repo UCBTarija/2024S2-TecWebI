@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use App\Core\Application\ProductoService;
 use App\Infraestructura\ProductoRepositoryFb;
 
@@ -58,6 +59,8 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('producto-create');
+        
         // validación de los datos enviados por el formulario
         $validatedData = $request->validate([
             'codigo' => ['required', 'max:20'],

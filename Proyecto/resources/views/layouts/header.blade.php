@@ -29,6 +29,7 @@
           <form method="POST" action="<?= url('logout') ?>">
             @csrf
             <button type="submit" class="btn btn-link">Cerrar Sesión</button>
+          </form>
         </li>
         <li>
           <a href="profile">Perfil</a>
