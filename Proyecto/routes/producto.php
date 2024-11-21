@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductoController;
 Route::get('producto/index', [ProductoController::class, 'index'])->middleware(['auth']);
 Route::get('producto/create', [ProductoController::class, 'create'])->middleware(['auth']);
 Route::post('producto/create', [ProductoController::class, 'store']);
-Route::get('producto/edit/{id}', [ProductoController::class, 'edit']);
+Route::get('producto/edit/{id}', [ProductoController::class, 'edit'])->middleware(['auth']);
 Route::post('producto/update/{id}', [ProductoController::class, 'update']);
 Route::post('producto/destroy/{id}', [ProductoController::class, 'destroy']);
 

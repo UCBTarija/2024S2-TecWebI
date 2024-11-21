@@ -19,13 +19,13 @@ class ProductoController extends Controller
         // Aquí es donde se hace la inyección de dependencias
 
         
-        // $this->productoService = new ProductoService(
-        //     new \App\Infraestructura\ProductoRepositoryPg()
-        // );
-
         $this->productoService = new ProductoService(
-            new ProductoRepositoryFb()
+            new \App\Infraestructura\ProductoRepositoryFb()
         );
+
+        // $this->productoService = new ProductoService(
+        //     new \App\Infraestructura\ProductoRepositoryFb()
+        // );
     }
 
     /**
@@ -86,6 +86,8 @@ class ProductoController extends Controller
      */
     public function edit(Request $request, string $id)
     {
+        Gate::authorize('producto-update');
+        
         // recupera el producto
         $producto = $this->productoService->getProducto($id);
 
@@ -104,6 +106,8 @@ class ProductoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        Gate::authorize('producto-update');
+        
         $validatedData = $request->validate([
             'codigo' => ['required', 'max:20'],
             'nombre' => ['required'],
@@ -121,6 +125,8 @@ class ProductoController extends Controller
      */
     public function destroy(string $id)
     {
+        Gate::authorize('producto-delete');
+        
         $this->productoService->eliminarProducto($id);
 
         return redirect('producto/index')->with('success', 'Producto eliminado');

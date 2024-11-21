@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Core\Application\RbacService;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -48,10 +48,12 @@ class User extends Authenticatable
 
     public function hasPermission(string $permission): bool
     {
-        return array_key_exists($permission, self::PERMISSIONS);
-    }
-
-    const PERMISSIONS = [
-        'producto-create'
-    ];
+        $rbacService = new RbacService();
+        return $rbacService->hasPermission($this->id, $permission);
 }
+
+}
+
+
+// $rbacService = new RbacService();
+// return $rbacService->hasPermission($this->id, $permission);

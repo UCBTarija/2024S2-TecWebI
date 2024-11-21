@@ -18,20 +18,15 @@
     <div class="container">
         <header class="row">
             <div class="container">
-                <header class="d-flex justify-content-center py-3">
+                <header class="d-flex justify-content-end py-3">
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="login" class="nav-link">Iniciar Sesión</a></a></li>
+                        <li class="nav-item"><a href="register" class="nav-link">Registrar</a></a></li>
                     </ul>
                 </header>
             </div>
         </header>
         <div id="main" class="row">
-            <a href="login">Iniciar Sesión</a>
-            <a href="register">Registrar</a>
 
         </div>
     </div>

@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?= url('/') ?>">Inicio</a>
+          <a class="nav-link active" aria-current="page" href="<?= url('/dashboard') ?>">Inicio</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -20,19 +20,25 @@
             </li>
             <li><a class="dropdown-item" href="<?= url('producto/create') ?>">Nuevo Producto</a></li>
           </ul>
-
-
         </li>
       </ul>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <form method="POST" action="<?= url('logout') ?>">
-            @csrf
-            <button type="submit" class="btn btn-link">Cerrar Sesión</button>
-          </form>
-        </li>
-        <li>
-          <a href="profile">Perfil</a>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ Auth::user()->name }} ({{ Auth::user()->id }})
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?= url('profile') ?>">Perfil</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <form method="POST" action="<?= url('logout') ?>">
+                @csrf
+                <button type="submit" class="dropdown-item">Cerrar Sesión</button>
+              </form>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
